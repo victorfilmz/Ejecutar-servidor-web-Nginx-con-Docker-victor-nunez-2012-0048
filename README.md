@@ -1,66 +1,40 @@
-# Práctica 6: Ejecutar Servidor Web Nginx con Docker
+# Práctica 6: Ejecutar servidor web Nginx con Docker
 
-## 📌 Descripción
+## Descripción
+Esta práctica consiste en crear y ejecutar un servidor web Nginx de manera local utilizando Docker Compose. Se utiliza un archivo HTML como página principal y un volumen para conectar los archivos locales con el directorio web del contenedor.
 
-Esta práctica consiste en configurar y ejecutar un servidor web **Nginx** local utilizando contenedores mediante **Docker Compose**. Los archivos estáticos se administran desde el directorio local `src/` y se conectan en tiempo real al directorio raíz web del contenedor (`/usr/share/nginx/html`) mediante un volumen montado en modo solo lectura (`:ro`).
+## Objetivo de la práctica
+Aprender a configurar y ejecutar un servidor web local mediante Docker Compose, utilizando volúmenes para servir contenido HTML desde el equipo anfitrión.
 
----
+## Ejecución del proyecto
+Para ejecutar el servidor, es necesario tener Docker Desktop instalado y en funcionamiento.
 
-## 🎯 Objetivos de la Práctica
+1. Clonar este repositorio.
+2. Abrir una terminal en la carpeta del proyecto.
+3. Ejecutar el siguiente comando:
 
-- Configurar un entorno local con contenedores usando **Docker Compose**.
-- Servir contenido HTML estático personalizado a través de **Nginx Alpine**.
-- Implementar el mapeo de volúmenes locales al sistema de archivos del contenedor.
-- Administrar el ciclo de vida de los contenedores mediante la CLI de Docker.
-
----
-
-## 📂 Estructura del Proyecto
-
-```text
-.
-├── docker-compose.yml   # Archivo de definición del servicio Nginx y volúmenes
-├── README.md            # Documentación y guía de ejecución
-└── src/
-    └── index.html       # Página web principal personalizada con estilo moderno
+```bash
+docker compose up -d
 ```
 
----
+4. Abrir el navegador y acceder a:
 
-## 🚀 Instrucciones de Ejecución
+http://localhost:8080
 
-### Requisitos Previos
-Tener instalado y en ejecución [Docker Desktop](https://www.docker.com/products/docker-desktop/).
+Para comprobar el estado del contenedor, utilizar:
 
-### Pasos
+```bash
+docker compose ps
+```
 
-1. **Clonar este repositorio:**
-   ```bash
-   git clone https://github.com/victorfilmz/Ejecutar-servidor-web-Nginx-con-Docker-victor-nunez-2012-0048.git
-   cd Ejecutar-servidor-web-Nginx-con-Docker-victor-nunez-2012-0048
-   ```
+Para detener el servidor, ejecutar:
 
-2. **Iniciar el servidor web en segundo plano:**
-   ```bash
-   docker compose up -d
-   ```
+```bash
+docker compose down
+```
 
-3. **Verificar el estado del contenedor:**
-   ```bash
-   docker compose ps
-   ```
+## Resultado esperado
+Al acceder a `http://localhost:8080`, se muestra una página HTML con el mensaje **¡Hola mundo!**, servido mediante Nginx.
 
-4. **Acceder en el navegador:**
-   Ingresa a: [http://localhost:8080](http://localhost:8080)
-
-5. **Detener el servidor:**
-   ```bash
-   docker compose down
-   ```
-
----
-
-## 👨‍💻 Autor
-
-- **Nombre:** Víctor Núñez
-- **Matrícula:** 2012-0048
+## Autor
+Víctor Núñez - Matrícula: 2012-0048
